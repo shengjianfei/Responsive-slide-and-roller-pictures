@@ -52,6 +52,12 @@
                     nextMove();
                 }
             });
+            obj.bind('mousewheel', function(event) {
+                event.preventDefault();
+                var scrollTop = this.scrollTop;
+                this.scrollTop = (scrollTop + ((event.deltaY * event.deltaFactor) * -1));
+                //console.log(event.deltaY, event.deltaFactor, event.originalEvent.deltaMode, event.originalEvent.wheelDelta);
+            }); 
             obj.mouseenter(function(event){
                 obj.find('ul li').eq(index).find('span').animate({bottom:0+'%'}, 500, 'linear');
             }).mouseleave(function(event){
