@@ -42,15 +42,21 @@
             nextBtn.click(function () {
                 nextMove();
             });
-
+            
+            var flagTimeOut=0;
             obj.on('mousewheel', function(event) {
                 //console.log(event.deltaX, event.deltaY, event.deltaFactor);
-                if(event.deltaY==1){
+                if((event.deltaY==1)&&(flagTimeOut==0)){
+                    flagTimeOut=1;
                     prevMove();
                 }
-                if(event.deltaY==-1){
+                if((event.deltaY==-1)&&(flagTimeOut==0)){
+                    flagTimeOut=1;
                     nextMove();
                 }
+                setTimeout(function(){
+                    flagTimeOut=0;
+                },500);
             });
             obj.bind('mousewheel', function(event) {
                 event.preventDefault();
