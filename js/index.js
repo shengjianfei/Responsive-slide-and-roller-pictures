@@ -49,14 +49,18 @@
                 if((event.deltaY==1)&&(flagTimeOut==0)){
                     flagTimeOut=1;
                     prevMove();
+                    setTimeout(function(){
+                        flagTimeOut=0;
+                    },500);
                 }
                 if((event.deltaY==-1)&&(flagTimeOut==0)){
                     flagTimeOut=1;
                     nextMove();
+                    setTimeout(function(){
+                        flagTimeOut=0;
+                    },500);
                 }
-                setTimeout(function(){
-                    flagTimeOut=0;
-                },500);
+                
             });
             obj.bind('mousewheel', function(event) {
                 event.preventDefault();
