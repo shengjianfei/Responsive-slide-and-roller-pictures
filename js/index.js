@@ -7,6 +7,7 @@
             speed: 1000,
         };
         var opts = $.extend({}, defaults, options);
+        //图片位置初始化
         function picPosInit(obj){
             for(var i=0;i<obj.find('li').length;i++){
                 obj.find('ul li').eq(i).css('left',i*100+'%');
