@@ -45,7 +45,7 @@
             nextBtn.click(function () {
                 nextMove();
             });
-            
+            //滚轮移动
             var flagTimeOut=0;
             obj.on('mousewheel', function(event) {
                 //console.log(event.deltaX, event.deltaY, event.deltaFactor);
