@@ -13,8 +13,8 @@
                 obj.find('ul li').eq(i).css('left',i*100+'%');
             }
         }
-        var index=0;
         //图片移动
+        var index=0;
         function Move(obj){
             var prevBtn=obj.find('.prev');
             var nextBtn=obj.find('.next');
