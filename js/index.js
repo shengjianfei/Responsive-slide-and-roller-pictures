@@ -13,11 +13,13 @@
             }
         }
         var index=0;
+        //图片移动
         function Move(obj){
             var prevBtn=obj.find('.prev');
             var nextBtn=obj.find('.next');
             var picLength=obj.find('ul li').length;
             var textHeight=obj.find('ul li').find('span').height();
+            //图片向左移动
             function prevMove(){
                 if(index==0){
                     return 0;
@@ -27,6 +29,7 @@
                     obj.find('ul li').eq(i).animate({left:(i-index)*100+'%'}, opts.speed, 'linear');
                 }
             }
+            //图片向右移动
             function nextMove(){
                 if(index==(picLength-1)){
                     return 0;
@@ -60,14 +63,15 @@
                         flagTimeOut=0;
                     },500);
                 }
-                
-            });
+            });   
+            //阻止滚动条移动
             obj.bind('mousewheel', function(event) {
                 event.preventDefault();
                 var scrollTop = this.scrollTop;
                 this.scrollTop = (scrollTop + ((event.deltaY * event.deltaFactor) * -1));
                 //console.log(event.deltaY, event.deltaFactor, event.originalEvent.deltaMode, event.originalEvent.wheelDelta);
             }); 
+            //鼠标移动显示文字
             obj.mouseenter(function(event){
                 obj.find('ul li').eq(index).find('span').animate({bottom:0+'%'}, 500, 'linear');
             }).mouseleave(function(event){
@@ -83,7 +87,7 @@
                 $('.web-enjoy').css('height', parseInt(document.body.clientWidth/2.0)+'px');
             });
         }
-
+        //执行每个函数
         this.each(function(i){
             var _this = $(this);
             picPosInit(_this);
